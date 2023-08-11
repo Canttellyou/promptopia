@@ -19,7 +19,8 @@ const Form = ({
     };
 
     const checkProfanityBeforeSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log(adultWords);
         if (checkForAdultWords(post.tag) || checkForAdultWords(post.prompt)) {
             toastError('Profane words are not allowed')
         } else {
@@ -33,7 +34,7 @@ const Form = ({
                 <span className="blue_gradient" >{type} Post</span></h1>
             <p className="desc text-left max-w-md" > {type} and share amazing prompts with the world, and let your imagination run wild with any AI-powered platform.</p>
 
-            <form onSubmit={checkProfanityBeforeSubmit} className="mt-10 w-full max-w-2xl flex flex-col  gap-7 glassmorphism" >
+            <form onSubmit={(e) => checkProfanityBeforeSubmit(e)} className="mt-10 w-full max-w-2xl flex flex-col  gap-7 glassmorphism" >
 
                 <label>
                     <span className="font-satoshi font-semibold text-base text-gray-700"  >Your AI Prompt</span>
