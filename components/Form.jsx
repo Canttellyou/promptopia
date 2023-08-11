@@ -12,7 +12,7 @@ const Form = ({
     const checkProfanityBeforeSubmit = (e) => {
         e.preventDefault();
 
-        if (post.tag.replace(/\s/g, '') === "" || post.prompt.replace(/\s/g, '')) {
+        if (post.tag.replace(/\s/g, '') === "" || post.prompt.replace(/\s/g, '') === "") {
             toastError('Empty input field(s)')
         } else {
             handleSubmit()
