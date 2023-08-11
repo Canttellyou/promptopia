@@ -7,21 +7,13 @@ import { toastError } from "@utils/toaster";
 const Form = ({
     type, post, setPost, submitting, handleSubmit
 }) => {
-    const checkForAdultWords = (sentence) => {
-        const lowerCaseSentence = sentence.toLowerCase();
 
-        for (const word of adultWords) {
-            if (lowerCaseSentence.includes(word)) {
-                return true;
-            }
-        }
-        return false;
-    };
 
     const checkProfanityBeforeSubmit = (e) => {
         e.preventDefault();
-        if (checkForAdultWords(post.tag) || checkForAdultWords(post.prompt)) {
-            toastError('Profane words are not allowed')
+
+        if (post.tag.replace(/\s/g, '') === "" || post.prompt.replace(/\s/g, '')) {
+            toastError('Empty input field(s)')
         } else {
             handleSubmit()
         }

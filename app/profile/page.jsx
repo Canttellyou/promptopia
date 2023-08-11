@@ -28,6 +28,8 @@ const MyProfile = () => {
     useEffect(() => {
         fetchDataWithDelay()
     }, [session?.user.id]);
+
+
     useEffect(() => {
         (() => {
             if (!session) {
