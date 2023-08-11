@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
+import { useSession } from "next-auth/react";
 
 const EditPrompt = () => {
     const [submitting, setSubmitting] = useState(false);
+    const { data: session } = useSession()
     const [post, setPost] = useState({
         prompt: "",
         tag: "",
@@ -26,6 +28,14 @@ const EditPrompt = () => {
         };
         if (promptId) getPromptDetails();
     }, [promptId]);
+
+    useEffect(() => {
+        (() => {
+            if (!session) {
+                router.push('/');
+            }
+        })()
+    })
 
     const updatePrompt = async (e) => {
         e.preventDefault();

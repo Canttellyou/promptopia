@@ -20,7 +20,6 @@ const Form = ({
 
     const checkProfanityBeforeSubmit = (e) => {
         e.preventDefault();
-        console.log(adultWords);
         if (checkForAdultWords(post.tag) || checkForAdultWords(post.prompt)) {
             toastError('Profane words are not allowed')
         } else {

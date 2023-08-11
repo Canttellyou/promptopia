@@ -26,10 +26,15 @@ const MyProfile = () => {
         }
     };
     useEffect(() => {
-
         fetchDataWithDelay()
     }, [session?.user.id]);
-
+    useEffect(() => {
+        (() => {
+            if (!session) {
+                router.push('/');
+            }
+        })()
+    });
 
 
     const handleEdit = (post) => {
