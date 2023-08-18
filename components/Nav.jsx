@@ -13,7 +13,7 @@ const Nav = () => {
     const [toggleDropDown, setToggleDropDown] = useState(false);
     const signUserOut = () => {
         router.push('/');
-        signOut({ callbackUrl: 'http://localhost:3000/' });
+        signOut({ callbackUrl: 'https://promptopia-prompt.vercel.app' });
     }
     useEffect(() => {
         const setProvider = async () => {
