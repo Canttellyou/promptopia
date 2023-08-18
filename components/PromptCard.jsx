@@ -50,12 +50,17 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
             Answer: <br />
             {detectLang(post.answer).toLowerCase() !== "unknown" &&
-                <HighlightStyle className="highlight" innerHTML={detectLang(post.answer).toLowerCase() === "unknown" ? true : false} language={detectLang(post.answer)}>
-                    <p className="my-4 font-satoshi text-sm text-gray-700">{post.answer}</p>
+                <p style={{
+                    width: '100%',
+                }} className="my-4 font-satoshi text-sm text-gray-700">
+                    <HighlightStyle className="highlight" innerHTML={detectLang(post.answer).toLowerCase() === "unknown" ? true : false} language={detectLang(post.answer)}>
+                        {post.answer}
 
-                </HighlightStyle>}
+                    </HighlightStyle></p>}
             {detectLang(post.answer).toLowerCase() === "unknown" &&
-                <p className="my-4 font-satoshi text-sm text-gray-700">{post.answer}</p>
+                <p style={{
+                    width: '20rem',
+                }} className="my-4 font-satoshi text-sm text-gray-700">{post.answer}</p>
             }
 
 
