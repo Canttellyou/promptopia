@@ -11,6 +11,7 @@ const EditPrompt = () => {
     const [post, setPost] = useState({
         prompt: "",
         tag: "",
+        answer: ''
     });
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -24,6 +25,7 @@ const EditPrompt = () => {
             setPost({
                 prompt: data.prompt,
                 tag: data.tag,
+                answer: data.answer
             });
         };
         if (promptId) getPromptDetails();
@@ -47,6 +49,7 @@ const EditPrompt = () => {
                 body: JSON.stringify({
                     prompt: post.prompt,
                     tag: post.tag,
+                    answer: post.answer
                 }),
             });
             if (response.ok) {

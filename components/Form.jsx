@@ -12,7 +12,7 @@ const Form = ({
     const checkProfanityBeforeSubmit = (e) => {
         e.preventDefault();
 
-        if (post.tag.replace(/\s/g, '') === "" || post.prompt.replace(/\s/g, '') === "") {
+        if (post.tag.replace(/\s/g, '') === "" || post.prompt.replace(/\s/g, '') === "" || post.answer.replace(/\s/g, '') === '') {
             toastError('Empty input field(s)')
         } else {
             handleSubmit()
@@ -32,6 +32,17 @@ const Form = ({
                     <textarea value={post.prompt} onChange={(e) => setPost({
                         ...post,
                         prompt: e.target.value
+                    })}
+                        placeholder="Write your prompt here..."
+                        className="form_textarea"
+                    />
+                </label>
+
+                <label>
+                    <span className="font-satoshi font-semibold text-base text-gray-700"  >Your AI Answer</span>
+                    <textarea value={post.answer} onChange={(e) => setPost({
+                        ...post,
+                        answer: e.target.value
                     })}
                         placeholder="Write your prompt here..."
                         className="form_textarea"

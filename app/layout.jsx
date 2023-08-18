@@ -14,6 +14,8 @@ const RootLayout = ({ children }) => {
         <html lang='en' >
             <head>
                 <link rel="icon" href="logo.svg" />
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-dark.min.css" />
             </head>
             <body>
                 <Provider>

@@ -12,7 +12,11 @@ const PromptSchema = new Schema({
     tag: {
         type: String,
         required: [true, 'Tag is required'],
-    }
+    },
+    answer: {
+        type: String,
+        required: [true, 'Answer is required'],
+    },
 });
 
 

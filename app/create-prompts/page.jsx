@@ -13,7 +13,8 @@ const CreatePrompt = () => {
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({
         prompt: '',
-        tag: ''
+        tag: '',
+        answer: ''
     });
 
     useEffect(() => {
@@ -32,7 +33,8 @@ const CreatePrompt = () => {
                 body: JSON.stringify({
                     prompt: post.prompt,
                     userId: session?.user.id,
-                    tag: post.tag
+                    tag: post.tag,
+                    answer: post.answer
                 })
             })
             if (response.ok) {

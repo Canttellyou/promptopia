@@ -35,7 +35,7 @@ const Nav = () => {
                     <div className="flex gap-3 md:gap-5" >
                         <Link href={"/create-prompts"} className="black_btn" >Create Post</Link>
                         <button type="button" onClick={signUserOut} className="outline_btn">Sign Out</button>
-                        <Link href={"/profile"} >
+                        <Link href={`/profile?id=${session.user.id}`} >
                             <Image src={session.user.image} width={37}
                                 height={37}
                                 alt="profile"

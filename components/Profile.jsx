@@ -1,8 +1,11 @@
 
 
+import { useSession } from "next-auth/react"
 import PromptCard from "./PromptCard"
 
-const Profile = ({ data, handleEdit, handleDelete, name, desc }) => {
+const Profile = ({ data, handleEdit, handleDelete, name = 'My', desc }) => {
+    const { data: session } = useSession()
+
     return (
         <section className="w-full" >
 
