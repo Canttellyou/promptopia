@@ -34,13 +34,13 @@ const MyProfile = () => {
     }, [promptId, session?.user.id]);
 
 
-    useEffect(() => {
-        (() => {
-            if (!session) {
-                router.push('/');
-            }
-        })()
-    });
+    // useEffect(() => {
+    //     (() => {
+    //         if (!session) {
+    //             router.push('/');
+    //         }
+    //     })()
+    // }, []);
 
 
     const handleEdit = (post) => {
@@ -65,8 +65,15 @@ const MyProfile = () => {
 
         <>
             {session?.user.id === promptId && <Profile name="My" desc="Welcome to your personalized profile" data={data} handleEdit={handleEdit} handleDelete={handleDelete} />}
-
-            {session?.user.id !== promptId && <Profile name={data[0].creator.username + "'s"} desc={`Welcome to ${data[0].creator.username}'s personalized profile page. Explore${data[0].username}'s exceptional prompts and be inspired by the power of their imagination`} data={data} handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {session?.user.id !== promptId && data.length > 0 && data[0].creator && (
+                <Profile
+                    name={data[0].creator.username + "'s"}
+                    desc={`Welcome to ${data[0]?.creator.username}'s personalized profile page. Explore ${data[0]?.creator.username}'s exceptional prompts and be inspired by the power of their imagination`}
+                    data={data}
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
+                />
+            )}
 
             {loading && <Loader />}
             {!loading && data.length === 0 && !error && <p>No prompts currently. Create one!</p>}
