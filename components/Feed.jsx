@@ -53,7 +53,7 @@ const Feed = () => {
 
 
     return (
-        <section className="feed" >
+        <section className="feed" onLoad={fetchPost} >
             <form className="relative w-full flex-center ">
                 <input
                     type="text"
